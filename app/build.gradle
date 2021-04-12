@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.kotlinrxmvvm"
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+def lifeCycleExtensionVer = '1.1.1'
+def supportVer = '28.0.0'
+def retrofitVer = '2.3.0'
+def glideVer = '4.9.0'
+def paletteVer = '1.0.0'
+def rxJavaVer = '2.1.1'
+def roomVer = '2.1.0-rc01'
+def navVer = '2.1.0-alpha05'
+def prefVer = '1.0.0'
+
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "com.android.support:design:$supportVer"
+    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVer"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+
+    // Room
+    implementation "androidx.room:room-runtime:$roomVer"
+    implementation "androidx.room:room-ktx:$roomVer"
+    kapt "androidx.room:room-compiler:$roomVer"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVer"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVer"
+
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVer"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVer"
+
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVer"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVer"
+
+    implementation "com.github.bumptech.glide:glide:$glideVer"
+    implementation "androidx.palette:palette:$paletteVer"
+    implementation "androidx.preference:preference-ktx:$prefVer"
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+}
